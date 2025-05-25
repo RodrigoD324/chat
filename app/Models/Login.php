@@ -6,7 +6,7 @@ use Google\Client as GoogleClient;
 
 class Login
 {
-    public function google(array $data): array|bool
+    public function google(array $data): User|bool
     {
         $payload = $this->validateGoogleData($data);
         
@@ -14,13 +14,13 @@ class Login
             return false;
         }
 
-        $user = User::query()->get()->where('google_sub', $payload['sub'])->first();
+        $user = User::query()->where('google_sub', $payload['sub'])->first();
 
         if (!$user) {
             $user = $this->createUser($payload);
         }
 
-        return $user->toArray();
+        return $user;
     }
 
     private function createUser(array $data): User

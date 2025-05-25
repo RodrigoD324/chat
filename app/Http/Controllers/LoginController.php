@@ -6,6 +6,7 @@ use App\Models\Login;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,11 +21,20 @@ class LoginController extends Controller
 
     public function google(Request $request): RedirectResponse
     {
-        $response = $this->auth->google($request->all());
-        if (!$response) {
-            return to_route('auth.access');
+        $user = $this->auth->google($request->all());
+        if (!$user) {
+            return to_route('login');
         }
-        $request->session()->put('google', $response);
+        Auth::login($user, true);
         return to_route('chat.index');
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        // dd();
+        return redirect('/');
     }
 }

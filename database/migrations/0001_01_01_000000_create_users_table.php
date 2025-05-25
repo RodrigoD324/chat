@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('token_password', 255)->nullable();
             $table->timestamp('ts_token', 0)->nullable();
             $table->timestamp('ts_created', 0)->useCurrent();
+            $table->rememberToken();
             $table->unsignedBigInteger('id_cancel')->nullable();
 
             $table->foreign('id_cancel')->references('id_cancel')->on('cancel');
@@ -51,8 +52,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cancel');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('cancel');
         Schema::dropIfExists('sessions');
     }
 };

@@ -1,11 +1,4 @@
-<style>
-    @media (max-width: 768px) {
-        .container {
-            flex-direction: column;
-            gap: 10px;
-        }
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('css/app/login/login.css') }}" />
 
 <x-layout title="Acessar">
     <div class="row h-100">
@@ -29,7 +22,10 @@
                         <label for="password" class="form-label">Senha:</label>
                         <input type="password" class="form-control" id="password" placeholder="***********">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg w-100">Acessar</button>
+                    <button type="button" class="btn btn-primary btn-lg w-100 d-flex align-items-center justify-content-center">
+                        <span class="material-symbols-outlined me-1">login</span>
+                        Acessar
+                    </button>
                 </form>
                 <div id="g_id_onload"
                     data-client_id="{{ env('GOOGLE_CLIENT_ID') }}"

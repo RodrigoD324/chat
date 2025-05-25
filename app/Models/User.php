@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
     protected $primaryKey = 'id_user'; 
-    public $incrementing = true;
-    protected $keyType = 'int';
+    public $timestamps = false;
     
     protected $fillable = [
         'email',
@@ -18,5 +17,4 @@ class User extends Model
         'picture_url',
     ];
 
-    public $timestamps = false;
 }
