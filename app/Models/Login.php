@@ -2,23 +2,53 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Google\Client as GoogleClient;
 
-class Login extends Model
+class Login
 {
-    use HasFactory;
-
-    public function google(array $data)
+    public function google(array $data): array|bool
     {
-        if (!isset($data['credential']) || !isset($data['g_csrf_token'])){
-            return to_route('chat.access');
+        $payload = $this->validateGoogleData($data);
+        
+        if (!$payload) {
+            return false;
+        }
+
+        $user = User::query()->get()->where('google_sub', $payload['sub'])->first();
+
+        if (!$user) {
+            $user = $this->createUser($payload);
+        }
+
+        return $user->toArray();
+    }
+
+    private function createUser(array $data): User
+    {
+        return User::create([
+            'email'         =>  $data['email'],
+            'password'      =>  $data['password'] ?? null,
+            'google_sub'    =>  $data['sub'] ?? null,
+            'name'          =>  $data['name'],
+            'picture_url'   =>  $data['picture'] ?? null
+        ]);
+    }
+
+    private function validateGoogleData(array $data): array|bool
+    {
+        if (!isset($data['credential']) || !isset($data['g_csrf_token'])) {
+            return false;
         }
 
         $cookie = $_COOKIE['g_csrf_token'] ?? null;
 
-        if ($data['g_csrf_token'] != $cookie){
-            return to_route('chat.access');
+        if ($data['g_csrf_token'] != $cookie) {
+            return false;
         }
+
+        $client = new GoogleClient(['client_id' => env('GOOGLE_CLIENT_ID')]);
+        $payload = $client->verifyIdToken($data['credential']);
+
+        return $payload;
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Login;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\View;
 
 class LoginController extends Controller
 {
@@ -11,13 +13,18 @@ class LoginController extends Controller
         protected Login $auth
     ) {}
 
-    public function index(Request $request)
+    public function index(): View
     {
-        return view('chat.login');
+        return view('auth.login');
     }
 
-    public function google(Request $request) 
+    public function google(Request $request): RedirectResponse
     {
-        return $this->auth->google($request->all());
+        $response = $this->auth->google($request->all());
+        if (!$response) {
+            return to_route('auth.access');
+        }
+        $request->session()->put('google', $response);
+        return to_route('chat.index');
     }
 }

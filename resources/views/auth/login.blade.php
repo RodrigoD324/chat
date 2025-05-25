@@ -32,8 +32,8 @@
                     <button type="submit" class="btn btn-primary btn-lg w-100">Acessar</button>
                 </form>
                 <div id="g_id_onload"
-                    data-client_id="808859568175-cs914e4p43630ntisak75lpqmkunb04q.apps.googleusercontent.com"
-                    data-login_uri="{{ route('chat.google')}}"
+                    data-client_id="{{ env('GOOGLE_CLIENT_ID') }}"
+                    data-login_uri="{{ route('auth.google')}}"
                     data-auto_prompt="false">
                 </div>
                 <div class="g_id_signin d-flex justify-content-center mt-3"
