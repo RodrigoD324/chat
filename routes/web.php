@@ -4,7 +4,10 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('/auth/login');
+    return redirect('/auth/acessar');
 });
 
-Route::get('/auth/login', [LoginController::class, 'index'])->name('chat.login');
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/auth/acessar', 'index')->name('chat.access');
+    Route::post('/auth/google', 'google')->name('chat.google');
+});

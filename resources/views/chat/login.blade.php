@@ -20,6 +20,7 @@
                 <!-- <div class="card">
                     <div class="card-body"> -->
                 <form>
+                    @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email:</label>
                         <input type="email" class="form-control" id="email" placeholder="Digite seu email" autofocus>
@@ -28,12 +29,21 @@
                         <label for="password" class="form-label">Senha:</label>
                         <input type="password" class="form-control" id="password" placeholder="***********">
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Acessar</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Acessar</button>
                 </form>
-                <!-- </div>
-                </div> -->
+                <div id="g_id_onload"
+                    data-client_id="808859568175-cs914e4p43630ntisak75lpqmkunb04q.apps.googleusercontent.com"
+                    data-login_uri="{{ route('chat.google')}}"
+                    data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin d-flex justify-content-center mt-3"
+                    data-type="standard"
+                    data-size="large"
+                    data-theme="outline"
+                    data-text="sign_in_with"
+                    data-shape="rectangular"
+                    data-logo_alignment="left">
+                </div>
             </div>
         </div>
     </div>
