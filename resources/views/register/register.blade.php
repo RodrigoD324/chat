@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/app/login/login.css') }}" />
 
-<x-layout title="Acessar">
+<x-layout title="Cadastrar">
     <div class="row h-100">
         <div class="col-8 d-none d-md-flex align-items-center justify-content-center" style="background-color: #F3F4F4;">
             <img src="{{ asset('assets/imgs/people-talking.png') }}" class="img-fluid" alt="people-talking-with-their-phones">
@@ -40,7 +40,7 @@
                     data-shape="rectangular"
                     data-logo_alignment="left">
                 </div>
-                <p class="d-flex justify-content-center mt-3">Novo no Chat? <a href="{{ route('register.index') }}" class="ms-1 fw-bold">Cadastre-se!</a></p>
+                <p class="d-flex justify-content-center mt-3">Novo no Chat? <a href="/" class="ms-1 fw-bold">Cadastre-se!</a></p>
             </div>
         </div>
     </div>
