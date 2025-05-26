@@ -21,9 +21,10 @@
 
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="{{ asset('js/jquery/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('js/jquery/spinner/jquery.spinner.min.js') }}"></script>
 <script src="{{ asset('js/jquery/spinner/spinner.js') }}"></script>
-<script src="{{ asset('js/bootbox/bootbox.min.js') }}"></script>
+<script src="{{ asset('js/bootbox/bootbox.js') }}"></script>
 <script src="{{ asset('js/ajax/request.js') }}"></script>
 
 </html>

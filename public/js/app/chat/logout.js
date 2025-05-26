@@ -7,9 +7,8 @@ $(function () {
             function () {
                 window.location.href = "/";
             }, 
-            function (error) {
-                console.error(error);
-                return spinner.hide();
+            function () {
+                window.location.href = "/";
             }
         );
     });
