@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/jquery/spinner/jquery.spinner.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2/sweetalert2.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/app/layout.css') }}" />
 </head>
 
@@ -25,6 +26,8 @@
 <script src="{{ asset('js/jquery/spinner/jquery.spinner.min.js') }}"></script>
 <script src="{{ asset('js/jquery/spinner/spinner.js') }}"></script>
 <script src="{{ asset('js/bootbox/bootbox.js') }}"></script>
+<script src="{{ asset('js/sweetalert2/sweetalert2.js') }}"></script>
 <script src="{{ asset('js/ajax/request.js') }}"></script>
+<script src="{{ asset('js/app/common.js') }}"></script>
 
 </html>

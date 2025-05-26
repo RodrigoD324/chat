@@ -22,7 +22,7 @@
                         <label for="password" class="form-label">Senha:</label>
                         <input type="password" class="form-control" id="password" placeholder="***********">
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg w-100 d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-primary btn-lg w-100 d-flex align-items-center justify-content-center" id="btn_login">
                         <span class="material-symbols-outlined me-1">login</span>
                         Acessar
                     </button>
@@ -44,3 +44,5 @@
         </div>
     </div>
 </x-layout>
+
+<script src="{{ asset('js/app/auth/login.js') }}"></script>

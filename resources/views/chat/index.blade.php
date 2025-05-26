@@ -19,4 +19,4 @@
     </div>
 </x-layout>
 
-<script src="{{ asset('js/app/chat/logout.js') }}"></script>
+<script src="{{ asset('js/app/auth/logout.js') }}"></script>
