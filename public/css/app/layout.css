@@ -7,3 +7,10 @@ body {
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

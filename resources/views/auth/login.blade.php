@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/app/login/login.css') }}" />
-
 <x-layout title="Acessar">
     <div class="row h-100">
         <div class="col-8 d-none d-md-flex align-items-center justify-content-center" style="background-color: #F3F4F4;">
@@ -46,4 +44,5 @@
     </div>
 </x-layout>
 
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="{{ asset('js/app/auth/login.js') }}"></script>
