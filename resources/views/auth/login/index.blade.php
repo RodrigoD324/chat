@@ -38,11 +38,11 @@
                     data-shape="rectangular"
                     data-logo_alignment="left">
                 </div>
-                <p class="d-flex justify-content-center mt-3">Novo no Chat? <a href="{{ route('register.index') }}" class="ms-1 fw-bold">Cadastre-se!</a></p>
+                <p class="d-flex justify-content-center mt-3">Novo/a no Chat? <a href="{{ route('register.index') }}" class="ms-1 fw-bold">Cadastre-se!</a></p>
             </div>
         </div>
     </div>
 </x-layout>
 
 <script src="https://accounts.google.com/gsi/client" async defer></script>
-<script src="{{ asset('js/app/auth/login.js') }}"></script>
+<script src="{{ asset('js/app/auth/login/login.js') }}"></script>

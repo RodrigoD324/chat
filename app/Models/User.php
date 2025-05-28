@@ -16,5 +16,4 @@ class User extends Authenticatable
         'name',
         'picture_url',
     ];
-
 }

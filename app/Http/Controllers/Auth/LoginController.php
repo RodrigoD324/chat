@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Models\Login;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -16,7 +17,7 @@ class LoginController extends Controller
 
     public function index(): View
     {
-        return view('auth.login');
+        return view('auth.login.index');
     }
 
     public function google(Request $request): RedirectResponse

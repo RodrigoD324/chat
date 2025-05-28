@@ -30,7 +30,7 @@
                                 <span class="material-symbols-outlined me-1">login</span>
                                 Cadastrar-se
                             </button>
-                            <p class="d-flex justify-content-center mt-3">Já possui cadastro? <a href="{{ route('login') }}" class="ms-1 fw-bold">Entrar</a></p>
+                            <p class="d-flex justify-content-center mt-3">Já possui cadastro? <a href="{{ route('login') }}" class="ms-1 fw-bold">Entrar!</a></p>
                         </form>
                     </div>
                 </div>
@@ -38,3 +38,5 @@
         </div>
     </div>
 </x-layout>
+
+<script src="{{ asset('js/app/auth/register/register.js') }}"></script>

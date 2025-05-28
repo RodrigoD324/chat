@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Google\Client as GoogleClient;
+use Illuminate\Support\Facades\Hash;
 
 class Login
 {
@@ -27,7 +28,7 @@ class Login
     {
         return User::create([
             'email'         =>  $data['email'],
-            'password'      =>  $data['password'] ?? null,
+            'password'      =>  isset($data['password']) ? Hash::make($data['password']) : null,
             'google_sub'    =>  $data['sub'] ?? null,
             'name'          =>  $data['name'],
             'picture_url'   =>  $data['picture'] ?? null

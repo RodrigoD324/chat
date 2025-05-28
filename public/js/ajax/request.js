@@ -51,6 +51,9 @@ const request = (function ($) {
         success: onSuccess,
         error: onError,
         timeout: 60000,
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         statusCode: {
           404: function () {
             spinner.hide();
