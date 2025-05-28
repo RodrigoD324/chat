@@ -8,6 +8,8 @@ class Error
     {
         $returnCode = match ($error) {
             'UserAlreadyExist' => '400',
+            'UserNotExist' => '401 ',
+            'PasswordNotMatch' => '401 ',
             default => '500',
         };
 

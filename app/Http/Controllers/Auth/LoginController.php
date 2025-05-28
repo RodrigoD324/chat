@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\Success;
 use App\Http\Controllers\Controller;
 use App\Models\Login;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -19,6 +21,18 @@ class LoginController extends Controller
     {
         return view('auth.login.index');
     }
+
+    public function login(Request $request): JsonResponse
+    {
+        $user = $this->auth->login($request->all());
+        if (is_array($user)) {
+            return response()->json($user);
+        }
+        Auth::login($user, true);
+        $success = Success::defineReturnMessageAndCode('UserAuthenticated');
+        return response()->json($success);
+    }
+
 
     public function google(Request $request): RedirectResponse
     {

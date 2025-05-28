@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/auth/acessar', 'index')->name('login');
+    Route::post('/auth/login', 'login')->name('auth.login');
     Route::post('/auth/google', 'google')->name('auth.google');
     Route::post('/auth/logout', 'logout')->name('auth.logout');
 });

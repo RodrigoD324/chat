@@ -8,6 +8,7 @@ class Success
     {
         $returnCode = match ($success) {
             'UserRegistered' => '201',
+            'UserAuthenticated' => '200',
             default => '200',
         };
 
