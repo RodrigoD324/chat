@@ -33,16 +33,19 @@ class Login
     {
         $payload = $this->validateGoogleData($data);
 
-        if (!$payload) {
-            return false;
+        if (!$payload) return false;
+
+        $user = User::query()->where('email', $payload['email'])->first();
+
+        if (!$user) return $this->createUser($payload);
+        
+        if (!isset($user->google_sub)) {
+            $user->google_sub = $payload['sub'];
+            $user->name = $payload['name'];
+            $user->picture_url = $payload['picture'];
+            $user->save();
         }
-
-        $user = User::query()->where('google_sub', $payload['sub'])->first();
-
-        if (!$user) {
-            $user = $this->createUser($payload);
-        }
-
+        
         return $user;
     }
 

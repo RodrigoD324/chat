@@ -37,9 +37,7 @@ class LoginController extends Controller
     public function google(Request $request): RedirectResponse
     {
         $user = $this->auth->google($request->all());
-        if (!$user) {
-            return to_route('login');
-        }
+        if (!$user) return to_route('login');
         Auth::login($user, true);
         return to_route('chat.index');
     }
